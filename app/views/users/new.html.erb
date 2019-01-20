@@ -1,5 +1,50 @@
-<h1>New User</h1>
 
-<%= render 'form', user: @user %>
+  <div id="aboutwrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+        </div>
+      </div>
+    </div>
+    <!-- /container -->
+  </div>
 
-<%= link_to 'Back', users_path %>
+  <div class="container">
+    <div class="row centered mt mb">
+      <div class="col-lg-8 col-lg-offset-2">
+        
+        <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
+
+        <h1>New User</h1>
+            <%= render 'form', user: @user %>
+            <%= link_to 'Back', users_path %>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="social">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-2">
+          <a href="#"><i class="fa fa-dribbble"></i></a>
+        </div>
+        <div class="col-lg-2">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+        </div>
+        <div class="col-lg-2">
+          <a href="#"><i class="fa fa-twitter"></i></a>
+        </div>
+        <div class="col-lg-2">
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+        </div>
+        <div class="col-lg-2">
+          <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+        <div class="col-lg-2">
+          <a href="#"><i class="fa fa-tumblr"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </div>

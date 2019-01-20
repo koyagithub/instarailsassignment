@@ -1,31 +1,70 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Instant - Bootstrap Personal Template</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
 
-<h1>Users</h1>
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
-<table>
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Crypted password</th>
-      <th>Salt</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= user.crypted_password %></td>
-        <td><%= user.salt %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<br>
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
-<%= link_to 'New User', new_user_path %>
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Template Name: Instant
+    Template URL: https://templatemag.com/instant-bootstrap-personal-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+
+  <div id="aboutwrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+        </div>
+      </div>
+    </div>
+    <!-- /container -->
+  </div>
+
+  <div class="container">
+    <div class="row centered mt mb">
+      <div class="col-lg-8 col-lg-offset-2">
+        
+        <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
+
+        <%= link_to image_tag('../img/top_img2.png'), 'new_user_path' %>
+        <h2>KOYA GRAM</h2>
+        <p>KOYA GRAMでお気に入りの写真をシェア。世界で愛されるサービスです。｀</p>
+        <p>Let's share your favorite photos on KOYA GRAM.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="social">
+    <div class="container">
+      <div class="row centered">
+            <!-- under space -->
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -41,8 +41,13 @@ GEM
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
+    autoprefixer-rails (9.4.5)
+      execjs
     bcrypt (3.1.12)
     bindex (0.5.0)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.3)
     byebug (10.0.2)
     capybara (2.18.0)
@@ -142,7 +147,7 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    sass-rails (5.0.7)
+    sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
       sass (~> 3.1)
       sprockets (>= 2.8, < 4.0)
@@ -193,6 +198,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (= 3.3.7)
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
@@ -201,7 +207,7 @@ DEPENDENCIES
   pg (= 0.20.0)
   puma (~> 3.7)
   rails (~> 5.1.6)
-  sass-rails (~> 5.0)
+  sass-rails (= 5.0.6)
   selenium-webdriver
   sorcery
   spring

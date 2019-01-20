@@ -8,22 +8,43 @@
   </head>
   <body>
   
-  <!-- facebook認証 --> 
-  <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
-  <div id="nav">
-    <% if current_user %>
-      <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
-      <%= link_to "Logout", :logout, method: :post %>
-    <% else %>
-      <%= link_to "Register", new_user_path %> |
-      <%= link_to "Login", :login %>
-    <% end %>
-  </div>
-  <div>
-    <p id="notice"><%= flash[:notice] %></p>
-    <p id="alert"><%= flash[:alert] %></p>
-  </div>
-  <%= yield %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Instant - Bootstrap Personal Template</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
 
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Template Name: Instant
+    Template URL: https://templatemag.com/instant-bootstrap-personal-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
+  <%= render 'layouts/shim' %>
+</head>
+
+<body>
+ <%= render 'layouts/header' %>
+  <%= yield %>
+ <%= render 'layouts/footer' %>
   </body>
 </html>
