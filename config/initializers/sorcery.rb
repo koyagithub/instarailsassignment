@@ -2,10 +2,28 @@
 # The default is nothing which will include only core features (password encryption, login/logout).
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging, :external
-Rails.application.config.sorcery.submodules = []
+Rails.application.config.sorcery.submodules = [:external]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
+  
+#ここから下facebook認証
+  config.external_providers = [:twitter, :facebook]
+
+#add this file to .gitignore BEFORE putting any secret keys in here, or use a system like Figaro to abstract it!!! 
+      
+      
+  config.facebook.key = "2141401962617839"
+  config.facebook.secret = "1d2ba15249a05ac72903034197653260"
+  config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
+  config.facebook.user_info_path = "me?fields=email,name,username" #etc
+  config.facebook.user_info_mapping = {:email => "email", :name => "name", :username => "username", :hometown => "hometown/name"} #etc
+  config.facebook.scope = "email,user_hometown,user_likes" #etc
+  config.facebook.display = "popup"
+  
+  
+  
+  
   # -- core --
   # What controller action to call for non-authenticated users. You can also
   # override the 'not_authenticated' method of course.
@@ -507,7 +525,7 @@ Rails.application.config.sorcery.configure do |config|
     # Class which holds the various external provider data for this user.
     # Default: `nil`
     #
-    # user.authentications_class =
+    user.authentications_class = Authentication
 
     # User's identifier in authentications class.
     # Default: `:user_id`
@@ -524,7 +542,6 @@ Rails.application.config.sorcery.configure do |config|
     #
     # user.provider_uid_attribute_name =
   end
-
   # This line must come after the 'user config' block.
   # Define which model authenticates with sorcery.
   config.user_class = 'User'
