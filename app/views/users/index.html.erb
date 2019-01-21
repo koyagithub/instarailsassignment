@@ -33,30 +33,54 @@
 
 <body>
 
-  <div id="aboutwrap">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-lg-offset-3">
-        </div>
-      </div>
-    </div>
-    <!-- /container -->
-  </div>
-
+  
   <div class="container">
     <div class="row centered mt mb">
       <div class="col-lg-8 col-lg-offset-2">
-        
+        <% unless logged_in? %>
         <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
-
-        <%= link_to image_tag('../img/top_img2.png'), 'new_user_path' %>
         <h2>KOYA GRAM</h2>
-        <p>KOYA GRAMでお気に入りの写真をシェア。世界で愛されるサービスです。｀</p>
-        <p>Let's share your favorite photos on KOYA GRAM.</p>
-      </div>
+          <p>KOYA GRAMでお気に入りの写真をシェア。世界で愛されるサービスです。｀</p>
+          <p>Let's share your favorite photos on KOYA GRAM.</p>
+          <p>
+            <%= link_to new_user_path, target: "_blank" do %>
+            <%= image_tag "/img/top_img2.png",:size =>'90x90' %>
+            <p>ユーザー登録ページ</p>
+            <% end %>
+          </p>
+        <% end %>
+          
+      <% if logged_in? %>
+        <h1>My Portfolio</h1>
 
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="img/portfolio/folio01.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="img/portfolio/folio02.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="img/portfolio/folio03.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="img/portfolio/folio04.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="img/portfolio/folio05.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="img/portfolio/folio06.png" class="img-responsive"></a>
+        </div>
+        
+      <% else %>
+      <% end %>
+        
+      </div>
     </div>
   </div>
+
+
+
 
   <div id="social">
     <div class="container">

@@ -35,9 +35,8 @@ gem 'bootstrap-sass', '3.3.7'
 gem 'sorcery'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-gem 'sprockets', '2.11.0'
-gem 'sprockets-rails', '2.0.0'
+# Japanese error message
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

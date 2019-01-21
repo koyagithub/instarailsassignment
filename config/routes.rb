@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   get 'oauths/oauth'
   get 'oauths/callback'
-
+  get 'users/readme' => 'users#readme'
+  
   root :to => 'users#index'
   resources :user_sessions
   resources :users
-  
+
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 

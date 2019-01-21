@@ -1,7 +1,7 @@
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2>登録に失敗しました。</h2>
 
       <ul>
       <% user.errors.full_messages.each do |message| %>
@@ -10,17 +10,17 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :email %>
+ 
+  <div class="field-email">
+    <%= form.label :email ,:class => 'email_label'%>
     <%= form.text_field :email, id: :user_email %>
   </div>
 
-  <div class="field">
+  <div class="field-pass">
      <%= form.label :password %><br />
      <%= form.password_field :password %>
   </div>
-  <div class="field">
+  <div class="field-passconf">
      <%= form.label :password_confirmation %><br />
      <%= form.password_field :password_confirmation %>
   </div>
