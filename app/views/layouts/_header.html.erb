@@ -9,23 +9,23 @@
             <span class="icon-bar"></span>
           </button>
           <%= link_to 'KOYAGRAM', root_path,:class => 'navbar-brand' %>
-          <% if logged_in? %>
-          <p class= 'navbar-brand'><%= notice %> 現在ログイン中です！<%= @user.email %>さん</li>
+          <p class= 'navbar-brand'> <%= flash[:notice] %> 
+            <% if logged_in? %>
+              現在ログイン中です！<%= @user.email %>さん
+            <% end %>
           </p>
-          <% end %>
       </div>
       
       <% if logged_in? %>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'ログイン後', '#', :class =>'smoothscroll' %></li>
+          <li><%= link_to 'プロフィール', user_path(@user), :class =>'smoothscroll' %></li>
           <li><%= link_to 'ログアウト', logout_path, method: :post, :class =>'smoothscroll' %></li>
         </ul>
       </div>
       <% else %>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'サービス紹介', '#', :class =>'smoothscroll' %></li>
           <li><%= link_to 'ユーザー登録', new_user_path, :class =>'smoothscroll' %></li>
           <li><%= link_to 'ログインする', login_path, :class =>'smoothscroll' %></li>
         </ul>
