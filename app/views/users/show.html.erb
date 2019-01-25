@@ -1,18 +1,49 @@
   <div class="container">
     <div class="row centered mt mb">
       <div class="col-lg-8 col-lg-offset-2">
-        
         <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
+            
+          <h1>
+            <%= gravatar_for @user %>
+            <%= @user.email %>
+          </h1>
+          <h1>自己紹介文</h1>
+            <h2>仲良くしてくださいっぴ！</h2>
+            
+            <hr>
+            
+        <h1>最新の投稿</h1>
 
-<h1>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</h1>
-
-        <h1 class="sign-up-h1">新規登録フォーム</h1>
-        <P>登録する前に必ず<%= link_to '利用規約', users_readme_path %>を読んでください。</P>
-            <%= render 'form', user: @user %>
-            <%= link_to 'Back', users_path %>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="../img/portfolio/folio01.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="../img/portfolio/folio02.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="../img/portfolio/folio03.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="../img/portfolio/folio01.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="../img/portfolio/folio02.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="../img/portfolio/folio03.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="../img/portfolio/folio01.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="../img/portfolio/folio02.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="../img/portfolio/folio03.png" class="img-responsive"></a>
+        </div>
+            
+            
+            
       </div>
 
     </div>
@@ -25,22 +56,23 @@
           <a href="#"><i class="fa fa-dribbble"></i></a>
         </div>
         <div class="col-lg-2">
-          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-facebook">フォロワー</i></a>
         </div>
         <div class="col-lg-2">
-          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-twitter">フォロー中</i></a>
         </div>
         <div class="col-lg-2">
-          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-linkedin">投稿数</i></a>
         </div>
         <div class="col-lg-2">
-          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-instagram"><h3><%= link_to '登録情報編集', edit_user_path %></h3></i></a>
         </div>
         <div class="col-lg-2">
           <a href="#"><i class="fa fa-tumblr"></i></a>
         </div>
 
-      </div>
+
+        </div>
     </div>
   </div>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190120122540) do
+ActiveRecord::Schema.define(version: 20190125065203) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -28,6 +28,11 @@ ActiveRecord::Schema.define(version: 20190120122540) do
     t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "activation_state"
+    t.string "activation_token"
+    t.datetime "activation_token_expires_at"
+    t.boolean "activated", default: false
+    t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

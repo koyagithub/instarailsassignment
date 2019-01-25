@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:readme, :show, :edit, :update, :destroy]
-  skip_before_action :require_login, only: [:index, :readme, :new, :create]
+  skip_before_action :require_login, only: [:index, :readme, :new, :create, :activate]
 
   # GET /users
   # GET /users.json
@@ -33,11 +33,9 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
-        login(params[:email], params[:password])
-        format.html { redirect_to root_path, notice: 'ユーザー登録に成功しました！' }
+        format.html { redirect_to root_path, notice: 'ご登録のメールアドレスにメールが送られました。アカウントの有効化をお願いします。' }
         format.json { render :root_path, status: :created, location: @user }
       else
         format.html { render :new }
@@ -67,6 +65,19 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'ユーザーは削除されました。' }
       format.json { head :no_content }
+    end
+  end
+  
+  #After clicking account activation link that's sent by koyagram
+  def activate
+    if @user = User.load_from_activation_token(params[:id])
+      @user.activate!
+      auto_login(@user)
+      flash[:notice] = 'アクティベーションに成功しました'
+      redirect_to root_path
+    else
+      flash[:notice] = '既にアクティベーション済です'
+      redirect_to root_path
     end
   end
 
