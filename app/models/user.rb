@@ -11,6 +11,9 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
+                    
+  #profile validation
+  validates :profile, presence: true, length: { maximum: 140 }
   
   #has-many and dependent
   has_many :authentications, :dependent => :destroy

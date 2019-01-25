@@ -1,5 +1,21 @@
-<h1>Login</h1>
+<div class="container">
+    <div class="row centered mt mb">
+      <div class="col-lg-8 col-lg-offset-2">
+        
 
-<%= render 'form' %>
+        <h1 class="sign-up-h1">ログインフォーム</h1>
+        <p>ログインしたらぜひ写真を投稿してシェアしましょう！</p>
+            <%= render 'form', user: @user %>
+            <%= link_to 'Back', user_sessions_path %>
+      </div>
 
-<%= link_to 'Back', user_sessions_path %>
+    </div>
+  </div>
+  
+  <div id="social">
+    <div class="container">
+      <div class="row centered">
+            <!-- free space -->
+      </div>
+    </div>
+  </div>

@@ -2,17 +2,20 @@
     <div class="row centered mt mb">
       <div class="col-lg-8 col-lg-offset-2">
         <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
-            
           <h1>
             <%= gravatar_for @user %>
             <%= @user.email %>
           </h1>
-          <h1>自己紹介文</h1>
-            <h2>仲良くしてくださいっぴ！</h2>
-            
+          
+          <h2>自己紹介文</h2>
+            <% if @user.profile %>
+              <%= @user.profile %>
+            <% else %>
+              <h5>登録情報編集ページから<br />自己紹介を設定できます！
+              ぜひ自己紹介文を設定してみましょう</h5>
+            <% end %>
             <hr>
-            
-        <h1>最新の投稿</h1>
+          <h1>最新の投稿</h1>
 
         <div class="col-lg-4 col-md-4 col-sm-4 gallery">
           <a href="works.html"><img src="../img/portfolio/folio01.png" class="img-responsive"></a>

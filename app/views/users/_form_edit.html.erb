@@ -1,0 +1,21 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <%= user.errors %>
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <div class="field-email"><!-- substitute for field-profile -->
+    <%= form.label :自己紹介文。140文字以内でお好きな自己紹介文を入力してください。%>
+    <%= form.text_area :profile,  class: 'form-control', placeholder: "140文字以内で入力" %> 
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

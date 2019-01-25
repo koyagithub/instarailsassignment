@@ -20,6 +20,7 @@
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to 'プロフィール', user_path(current_user), :class =>'smoothscroll' %></li>
+          <li><%= link_to '登録情報編集', edit_user_path(current_user), :class =>'smoothscroll' %></li>
           <li><%= link_to 'ログアウト', logout_path, method: :post, :class =>'smoothscroll' %></li>
         </ul>
       </div>
