@@ -1,0 +1,29 @@
+        <p>新しく設定するパスワードを入力してください。</p>
+            <%= form_for @user, url: users_pass_edit_path do |f| %>
+              <% if @user.errors.any? %>
+                <div id="error_explanation">
+                  <ul>
+                  <% @user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+              <div class="field">
+                <%= f.label :email %><br />
+                <%= @user.email %>
+              </div>
+              <div class="field">
+                <%= f.label :password %><br />
+                <%= f.password_field :password %>
+              </div>
+              <div class="field">
+               <%= f.label :password_confirmation %><br />
+               <%= f.password_field :password_confirmation %>
+              </div>
+              <!-- FOR CSRF PROTECTION AUTHENTICITY TOKEN -->
+              <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+              <div class="actions">
+                <%= f.submit %>
+              </div>
+            <% end %>

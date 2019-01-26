@@ -1,7 +1,6 @@
   <div class="container">
     <div class="row centered mt mb">
       <div class="col-lg-8 col-lg-offset-2">
-        <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
           <h1>
             <%= gravatar_for @user %>
             <%= @user.email %>

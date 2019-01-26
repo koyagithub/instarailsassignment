@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  
+
   #Setting 
   get 'users/readme' => 'users#readme'
+  
+  #password edit
+  get 'users/pass_edit' => 'users#pass_edit'
+  patch 'users/pass_edit' => 'users#pass_update'
   
   #Root and resources for users & user_sessions
   root :to => 'users#index'
@@ -15,6 +19,12 @@ Rails.application.routes.draw do
   #Login and logout
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
+  
+  #password reset 
+  resources :password_resets
+  get 'password_resets/create'
+  get 'password_resets/edit'
+  get 'password_resets/update'
   
   #External
   get 'oauths/oauth'

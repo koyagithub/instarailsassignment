@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190125143436) do
+ActiveRecord::Schema.define(version: 20190126043422) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -33,9 +33,14 @@ ActiveRecord::Schema.define(version: 20190125143436) do
     t.datetime "activation_token_expires_at"
     t.boolean "activated", default: false
     t.text "profile"
+    t.string "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
+    t.integer "access_count_to_reset_password_page", default: 0
     t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["profile"], name: "index_users_on_profile"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
 end

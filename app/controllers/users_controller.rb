@@ -57,6 +57,28 @@ class UsersController < ApplicationController
       end
     end
   end
+  
+  # GET /users/pass_edit
+  def pass_edit
+    @user = current_user
+  end
+  
+  # PATCH /users/pass_edit
+   def pass_update
+     @user = params.require(:user).permit(:password, :password_confirmation)
+     @user = User.find_by(id: current_user)
+    if params[:user][:password].empty?
+      @user.errors.add(:パスワード,  "が空です。")
+      render 'pass_edit'
+    elsif @user.update_attributes(password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
+      auto_login(@user)
+      flash[:notice] = "パスワードが変更されました！"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+   end
+
 
   # DELETE /users/1
   # DELETE /users/1.json

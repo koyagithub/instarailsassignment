@@ -1,10 +1,8 @@
   <div class="container">
     <div class="row centered mt mb">
       <div class="col-lg-8 col-lg-offset-2">
-          <h2>登録情報編集ページ</h2>
-          <%= render 'form_edit', user: @user %>
-　　　　　<h5><%= link_to 'パスワード再設定はこちらから', '/users/pass_edit' %></h5>
-          <%= link_to 'プロフィールページへ', @user %> 
+          <h2>パスワード変更ページ</h2>
+          <%= render 'form_edit_pass', user: @user %>
       </div>
     </div>
   </div>

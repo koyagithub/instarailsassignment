@@ -13,7 +13,7 @@ class User < ApplicationRecord
                     uniqueness: true
                     
   #profile validation
-  validates :profile, presence: true, length: { maximum: 140 }
+  validates :profile, presence: true, length: { maximum: 140 }, allow_nil:  true
   
   #has-many and dependent
   has_many :authentications, :dependent => :destroy
