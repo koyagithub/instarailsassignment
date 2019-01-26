@@ -8,9 +8,15 @@
       </ul>
     </div>
   <% end %>
- 
+  
+  <div class="field-username">
+    <p> user nameは16文字以内で記入してください。</p>
+    <%= form.label :username ,:class => 'email_label'%><br />
+    <%= form.text_field :username, id: :user_email %>
+  </div>
+  
   <div class="field-email">
-    <%= form.label :email ,:class => 'email_label'%>
+    <%= form.label :email ,:class => 'email_label'%><br />
     <%= form.text_field :email, id: :user_email %>
   </div>
 

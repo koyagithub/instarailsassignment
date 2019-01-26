@@ -11,7 +11,7 @@
         <%= link_to 'KOYAGRAM', root_path,:class => 'navbar-brand' %>
           <p class= 'navbar-brand'> <%= flash[:notice] %> 
             <% if current_user %>
-              現在ログイン中です！<%= @user.email %>さん
+              現在ログイン中です！<%= @user.username %>さん
             <% end %>
           </p>
       </div>
