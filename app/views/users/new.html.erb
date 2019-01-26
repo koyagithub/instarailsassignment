@@ -6,17 +6,10 @@
 
         <h1 class="sign-up-h1">新規登録フォーム</h1>
         <P>登録する前に必ず<%= link_to '利用規約', users_readme_path %>を読んでください。</P>
-            <%= render 'form', user: @user %>
+            <%= render 'users/shared/form', user: @user %>
             <%= link_to 'Back', users_path %>
       </div>
 
     </div>
   </div>
   
-  <div id="social">
-    <div class="container">
-      <div class="row centered">
-            <!-- free space -->
-      </div>
-    </div>
-  </div>

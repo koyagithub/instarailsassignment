@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   #Setting 
   get 'users/readme' => 'users#readme'
+  get 'users/post' => 'users#post'
   
   #password edit
   get 'users/pass_edit' => 'users#pass_edit'
@@ -29,6 +30,9 @@ Rails.application.routes.draw do
   #External
   get 'oauths/oauth'
   get 'oauths/callback'
+  
+  #microposts 
+  resources :microposts,          only: [:create, :destroy]
 
   #Facebook authentication
   post "oauth/callback" => "oauths#callback"

@@ -18,6 +18,9 @@ class User < ApplicationRecord
   #profile validation
   validates :profile, presence: true, length: { maximum: 140 }, allow_nil:  true
   
+  #related with Micropost model
+  has_many :microposts, dependent: :destroy
+  
   #has-many and dependent
   has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications

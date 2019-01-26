@@ -1,0 +1,4 @@
+  
+  <h1><%= current_user.username %></h1>
+  <span><%= link_to "プロフィール画面へ", current_user %></span>
+  <span><%= pluralize(current_user.microposts.count, "投稿済") %></span>

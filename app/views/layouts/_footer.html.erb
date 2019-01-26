@@ -1,3 +1,15 @@
+  <div id="social">
+    <div class="container">
+      <div class="row centered">
+        <% if current_user %>
+        <h1>
+          <%= link_to '画像投稿する', users_post_path %>
+        </h1>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
   <div id="copyrights">
     <div class="container">
       <p>

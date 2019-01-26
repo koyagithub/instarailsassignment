@@ -1,80 +1,52 @@
   <div class="container">
     <div class="row centered mt mb">
       <div class="col-lg-8 col-lg-offset-2">
+        
+          <!-- profile image -->
           <h1>
-            <%= gravatar_for @user %>
             <%= @user.username %>
+            <%= gravatar_for @user %>
           </h1>
           
-          <h2>自己紹介文</h2>
+          <!-- profile text-->
+          <h3>自己紹介文</h3>
+          <div>
             <% if @user.profile %>
               <%= @user.profile %>
             <% else %>
-              <h5>登録情報編集ページから<br />自己紹介を設定できます！
+              <h5>メニューバーの登録情報編集ページから<br />自己紹介を設定できます！
               ぜひ自己紹介文を設定してみましょう</h5>
             <% end %>
+          </div>
             <hr>
-          <h1>最新の投稿</h1>
 
-        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
-          <a href="works.html"><img src="../img/portfolio/folio01.png" class="img-responsive"></a>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
-          <a href="works.html"><img src="../img/portfolio/folio02.png" class="img-responsive"></a>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
-          <a href="works.html"><img src="../img/portfolio/folio03.png" class="img-responsive"></a>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
-          <a href="works.html"><img src="../img/portfolio/folio01.png" class="img-responsive"></a>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
-          <a href="works.html"><img src="../img/portfolio/folio02.png" class="img-responsive"></a>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
-          <a href="works.html"><img src="../img/portfolio/folio03.png" class="img-responsive"></a>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
-          <a href="works.html"><img src="../img/portfolio/folio01.png" class="img-responsive"></a>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
-          <a href="works.html"><img src="../img/portfolio/folio02.png" class="img-responsive"></a>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
-          <a href="works.html"><img src="../img/portfolio/folio03.png" class="img-responsive"></a>
-        </div>
-            
-            
-            
-      </div>
-
-    </div>
-  </div>
-
-  <div id="social">
-    <div class="container">
       <div class="row centered">
-        <div class="col-lg-2">
-          <a href="#"><i class="fa fa-dribbble"></i></a>
+        <div class="col-lg-4">
+          <a href="#"><i class="fa fa-facebook">27</i></a>　フォロワー
         </div>
-        <div class="col-lg-2">
-          <a href="#"><i class="fa fa-facebook">フォロワー</i></a>
+        <div class="col-lg-4">
+          <a href="#"><i class="fa fa-twitter">39</i></a>　フォロー中
         </div>
-        <div class="col-lg-2">
-          <a href="#"><i class="fa fa-twitter">フォロー中</i></a>
+        <div class="col-lg-4">
+          <% @m_count = @user.microposts.count %>
+          <%= link_to @m_count, user_path(current_user) %></i></a>　投稿
         </div>
-        <div class="col-lg-2">
-          <a href="#"><i class="fa fa-linkedin">投稿数</i></a>
-        </div>
-        <div class="col-lg-2">
-          <a href="#"><i class="fa fa-instagram"><h3><%= link_to '登録情報編集', edit_user_path %></h3></i></a>
-        </div>
-        <div class="col-lg-2">
-          <a href="#"><i class="fa fa-tumblr"></i></a>
         </div>
 
-
-        </div>
+          <hr />
+          <!-- microposts -->
+          <% if @user.microposts.any? %>
+            <h3>最新の投稿 (<%= @user.microposts.count %>)</h3>
+            <ol class="microposts">
+              <%= render @microposts %>
+            </ol>
+            
+            
+          <% end %>
+      </div>
+      
+      <!-- pagination -->
+      <p><%= will_paginate @microposts %></p>
+      
     </div>
   </div>
-
