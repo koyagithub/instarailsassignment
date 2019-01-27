@@ -1,7 +1,12 @@
-<%= form_for(@micropost) do |f| %>
-  <%= render 'users/shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
-  </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
-<% end %>
+  <%= form_for(@micropost) do |f| %>
+    <%= render 'users/shared/error_messages', object: f.object %>
+
+    <div class="field">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/png', onChange:'inform()' %>
+    </div>
+    
+    <%= image_tag @micropost.picture.url if @micropost.picture? %>
+    <%= f.submit "投稿", class: "btn btn-primary" %>
+  <% end %>
+    
+  

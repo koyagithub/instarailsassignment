@@ -1962,6 +1962,7 @@ pre code {
   }
   .col-md-4 {
     width: 33.33333333%;
+    height:300px;
   }
   .col-md-3 {
     width: 25%;
@@ -4303,6 +4304,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border: 1px solid transparent;
   border-radius: 4px;
 }
+
 .navbar-toggle:focus {
   outline: 0;
 }

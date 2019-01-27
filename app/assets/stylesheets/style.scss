@@ -99,10 +99,11 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-default .navbar-toggle {
   border: none;
   border-color: #fff;
+  background-color: #f2f2f2;
 }
 
 .navbar-default .navbar-toggle:hover {
-  background: #666;
+  background: #f2f2f2;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -238,7 +239,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Gallery */
 .gallery {
-	margin-top: 30px;
+	margin-top: 100px;
 }
 
 .gallery img:hover {
@@ -424,4 +425,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .back_to_new {
   margin-top: 10px;
+}
+
+
+
+/* btn for uploading image */
+
+
+.upload-btn-wrapper {
+margin: 0 auto;
+margin-bottom:10px ;
+}
+ 
+.btn {
+border: 2px solid gray;
+color: gray;
+background-color: white;
+padding: 8px 20px;
+border-radius: 8px;
+font-size: 20px;
+font-weight: bold;
 }

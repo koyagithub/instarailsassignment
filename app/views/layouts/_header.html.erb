@@ -4,9 +4,9 @@
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+<li><%= link_to 'プロフィール', user_path(current_user), :class =>'smoothscroll' %></li>
+          <li><%= link_to '登録情報編集', edit_user_path(current_user), :class =>'smoothscroll' %></li>
+          <li><%= link_to 'ログアウト', logout_path, method: :post, :class =>'smoothscroll' %></li>
           </button>
         <%= link_to 'KOYAGRAM', root_path,:class => 'navbar-brand' %>
           <p class= 'navbar-brand'> <%= flash[:notice] %> 
