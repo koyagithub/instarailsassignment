@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'users/readme' => 'users#readme'
   get 'users/post' => 'users#post'
   
-  #password edit
+  #Password edit
   get 'users/pass_edit' => 'users#pass_edit'
   patch 'users/pass_edit' => 'users#pass_update'
   
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
   
-  #password reset 
+  #Password reset 
   resources :password_resets
   get 'password_resets/create'
   get 'password_resets/edit'
@@ -34,11 +34,15 @@ Rails.application.routes.draw do
   get 'oauths/oauth'
   get 'oauths/callback'
   
-  #microposts 
+  #Microposts 
   resources :microposts,          only: [:create, :destroy]
-
-  #relationships
+  
+  #Relationships
   resources :relationships,       only: [:create, :destroy]
+  
+  #Likes
+  post   '/like/:micropost_id' => 'likes#like',   as: 'like'
+  delete '/like/:micropost_id' => 'likes#unlike', as: 'unlike'
   
   #Facebook authentication
   post "oauth/callback" => "oauths#callback"

@@ -134,7 +134,8 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
-  private
+
+  private  
     # Set user 
     def set_user
       if logged_in?
@@ -149,3 +150,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:username, :email, :password, :password_confirmation, :profile)
     end
 end
+

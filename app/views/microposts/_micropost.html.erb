@@ -1,21 +1,30 @@
 
 <!-- micropost partial -->
-<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-  <li id="micropost-<%= micropost.id %>">
-    <%= image_tag micropost.picture.url if micropost.picture? %>
+<div class="col-lg-4 ">
   
-    <!-- if the picture was posted by you,display created at
-       and by followers,display their name and link -->
+    
+    <%= image_tag micropost.picture.url if micropost.picture? %>
+  </li>
+    <!-- if the picture was posted by myself,display created at
+       and by followers,display their name and link 
+       & Likes and Comment function-->
     <% if current_user == micropost.user %>
       <span class="timestamp">
       <br/ >
-        <%= time_ago_in_words(micropost.created_at) %> 前に投稿されました.
+        <%= time_ago_in_words(micropost.created_at) %> 前の投稿. 
       </span>
       <%= link_to "delete", micropost, method: :delete,
                                       data: { confirm: "本当に削除してもよろしいですか？" } %>
+      <hr class="original-h1">
+      <strong>タイトルをつけてみましょう！</strong><br />
 　  <% else %>
-　    <%= link_to micropost.user.username , user_path(micropost.user)  %>さんが投稿しました
+　    <br />
+　    <%= link_to micropost.user.username , user_path(micropost.user)  %>さんが投稿.
+      <hr class="original-h1">
+      <strong>タイトルをつけてみましょう！</strong><br />
 　  <% end %>
-　
-  </li>
+　  
+　  <%= render '/users/shared/like', collection: @micropost, micropost: micropost %>
+　  
+　  
 </div>

@@ -21,8 +21,10 @@ class User < ApplicationRecord
   #Profile validation
   validates :profile, presence: true, length: { maximum: 140 }, allow_nil:  true
   
-  #Related with Micropost model
+  #Related with Micropost and Like model
   has_many :microposts, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_stories, through: :likes, source: :micropost
   
   #Authentications has-many and dependent
   has_many :authentications, :dependent => :destroy

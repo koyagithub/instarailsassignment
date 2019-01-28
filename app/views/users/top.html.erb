@@ -35,8 +35,8 @@
 
   <!-- top -->
   <div class="container">
-    <div class="row centered mt mb">
-      <div class="col-lg-8 col-lg-offset-2">
+    <div class="centered mt mb">
+      
 
       <!-- if logged_in   display you and followers posts
            if not logged in  display ordinal top page -->
@@ -45,6 +45,7 @@
           <hr class= "original-h1">
           <h3>あなたとフォロワーの投稿一覧</h3>
           <hr class= "original-h1">
+          <br />
          <%= render 'users/shared/feed' %>
         <% else %>
           <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
@@ -59,7 +60,7 @@
             </p>
         <% end %>
         
-      </div>
+      
     </div>
   </div>
 
