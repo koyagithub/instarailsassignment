@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:readme, :show, :edit, :update, :destroy]
-  skip_before_action :require_login, only: [:index, :readme, :new, :create, :activate]
+  skip_before_action :require_login, only: [:top, :readme, :new, :create, :activate]
 
   # ROOT
   def top
@@ -43,15 +43,12 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    respond_to do |format|
       if @user.save
-        format.html { redirect_to root_path, notice: 'ご登録のメールアドレスにメールが送られました。アカウントの有効化をお願いします。' }
-        format.json { render :root_path, status: :created, location: @user }
+        flash[:notice] = "ご登録のメールアドレスにメールが送られました。アカウントの有効化をお願いします"
+        redirect_to root_path
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        render 'new'
       end
-    end
   end
 
   # PATCH/PUT /users/1
@@ -120,14 +117,16 @@ class UsersController < ApplicationController
   
   #GET /users/:id/following & followers
   def following
-    @title = "Following"
+    @title = "フォロー中のユーザー"
+    @h1 = "フォロー中のユーザー一覧"
     @user  = User.find(params[:id])
     @users = @user.following.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
-    @title = "Followers"
+    @title = "フォローされているユーザー"
+    @h1 = "フォローされているユーザー一覧"
     @user  = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'

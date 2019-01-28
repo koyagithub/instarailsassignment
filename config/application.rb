@@ -17,10 +17,10 @@ module InstaApp
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
   
-  # 認証トークンをremoteフォームに埋め込む
+  # Emb authenticity token to remote_forms
     config.action_view.embed_authenticity_token_in_remote_forms = true
   
-  #日本時間出力  
+  # Inputting time_zone asia/tokyo
   config.time_zone = 'Asia/Tokyo'
   end
 end
