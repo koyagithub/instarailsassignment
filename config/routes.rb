@@ -9,12 +9,15 @@ Rails.application.routes.draw do
   patch 'users/pass_edit' => 'users#pass_update'
   
   #Root and resources for users & user_sessions
-  root :to => 'users#index'
+  root :to => 'users#top'
   resources :user_sessions
   resources :users do 
     member do
       get :activate
     end
+    member do
+      get :following, :followers
+    end    
   end
 
   #Login and logout
@@ -34,6 +37,9 @@ Rails.application.routes.draw do
   #microposts 
   resources :microposts,          only: [:create, :destroy]
 
+  #relationships
+  resources :relationships,       only: [:create, :destroy]
+  
   #Facebook authentication
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook

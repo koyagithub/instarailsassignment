@@ -1,9 +1,14 @@
 require "application_system_test_case"
 
 class UsersTest < ApplicationSystemTestCase
-  # test "visiting the index" do
-  #   visit users_url
-  #
-  #   assert_selector "h1", text: "User"
-  # end
+  test "should follow and unfollow a user" do
+    michael = users(:michael)
+    archer  = users(:archer)
+    assert_not michael.following?(archer)
+    michael.follow(archer)
+    assert michael.following?(archer)
+    assert archer.followers.include?(michael)
+    michael.unfollow(archer)
+    assert_not michael.following?(archer)
+  end
 end

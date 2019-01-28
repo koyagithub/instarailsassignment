@@ -239,7 +239,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Gallery */
 .gallery {
-	margin-top: 100px;
+	margin-top: 20px;
 }
 
 .gallery img:hover {
@@ -445,4 +445,137 @@ padding: 8px 20px;
 border-radius: 8px;
 font-size: 20px;
 font-weight: bold;
+}
+
+/* original koyagram edit */
+
+.stats-div{
+  
+  border-radius: 22px;
+  padding-bottom: 20px;
+  margin-bottom: 5px;
+  width: 100%;
+  vertical-align: center;
+  float: left;
+}
+
+.stats-div2{
+  #border: 1px dotted #999;
+  font-size: 25px;
+  border-radius: 32px;
+  padding: 10px;
+  margin-right: 40px;
+  width: 43%;
+  float: right;
+  vertical-align: center;
+}
+
+.stats-div3{
+  #border: 1px dotted #999;
+  font-size: 25px;
+  border-radius: 32px;
+  padding: 10px;
+  margin-left: 40px;
+  margin-bottom: 18px;
+  width: 43%;
+  float: left;
+  vertical-align: center;
+}
+
+.original-h1 {
+  border: 1px dotted #999;
+  
+}
+
+@media (max-width: 1068px) {
+  
+  .stats-div2{
+  #border: 1px dotted #999;
+  font-size: 25px;
+  border-radius: 32px;
+  padding: 10px;
+  margin-right: 35px;
+  width: 41%;
+  float: right;
+  vertical-align: center;
+ }
+ 
+.stats-div3{
+  #border: 1px dotted #999;
+  font-size: 25px;
+  border-radius: 32px;
+  padding: 10px;
+  margin-left: 35px;
+  margin-bottom: 18px;
+  width: 41%;
+  float: left;
+  vertical-align: center;
+ }
+ 
+}
+
+@media (max-width: 768px) {
+  
+  .stats-div2{
+  #border: 1px dotted #999;
+  font-size: 25px;
+  border-radius: 32px;
+  padding: 10px;
+  margin-right: 35px;
+  width: 35%;
+  float: right;
+  vertical-align: center;
+ }
+ 
+.stats-div3{
+  #border: 1px dotted #999;
+  font-size: 25px;
+  border-radius: 32px;
+  padding: 10px;
+  margin-left: 35px;
+  width: 35%;
+  float: left;
+  vertical-align: center;
+ }
+ 
+}
+
+
+
+@media (max-width: 668px) {
+  
+  .stats-div2{
+  #border: 1px dotted #999;
+  font-size: 25px;
+  border-radius: 32px;
+  padding: 10px;
+  margin-right:35px;
+  width: 35%;
+  float: right;
+  vertical-align: center;
+ }
+ 
+.stats-div3{
+  #border: 1px dotted #999;
+  font-size: 25px;
+  border-radius: 32px;
+  padding: 10px;
+  margin-bottom: 18px;
+  margin-left: 35px;
+  width: 35%;
+  float: left;
+  vertical-align: center;
+ }
+ 
+}
+
+.self-introduction {
+  width: 50%;
+  margin-top: 20px;
+  
+}
+
+.md2 {
+  border: 1px dotted #999;
+  vertical-align: left;
 }

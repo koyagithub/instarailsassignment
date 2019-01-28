@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Instant - Bootstrap Personal Template</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Template Name: Instant
+    Template URL: https://templatemag.com/instant-bootstrap-personal-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+
+  
+  <div class="container">
+    <div class="row centered mt mb">
+      <div class="col-lg-8 col-lg-offset-2">
+        <% unless logged_in? %>
+        <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
+        <h2>KOYA GRAM</h2>
+          <p>KOYA GRAMでお気に入りの写真をシェア。世界で愛されるサービスです。｀</p>
+          <p>Let's share your favorite photos on KOYA GRAM.</p>
+          <p>
+            <%= link_to new_user_path, target: "_blank" do %>
+            <%= image_tag "/img/top_img2.png",:size =>'90x90' %>
+            <p>ユーザー登録ページ</p>
+            <% end %>
+          </p>
+        <% end %>
+          
+      <% if logged_in? %>
+        <h1>ALL PHOTOS</h1>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="img/portfolio/folio01.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="img/portfolio/folio02.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="img/portfolio/folio03.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="img/portfolio/folio04.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="img/portfolio/folio05.png" class="img-responsive"></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 gallery">
+          <a href="works.html"><img src="img/portfolio/folio06.png" class="img-responsive"></a>
+        </div>
+        
+      <% else %>
+      <% end %>
+        
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -2,23 +2,34 @@
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
+      <% if current_user %>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-<li><%= link_to 'プロフィール', user_path(current_user), :class =>'smoothscroll' %></li>
-          <li><%= link_to '登録情報編集', edit_user_path(current_user), :class =>'smoothscroll' %></li>
-          <li><%= link_to 'ログアウト', logout_path, method: :post, :class =>'smoothscroll' %></li>
-          </button>
+        <span class="sr-only">Toggle navigation</span>
+        <li><%= link_to 'ユーザー一覧', users_path , :class =>'smoothscroll' %></li>
+        <li><%= link_to '通知', '#', :class =>'smoothscroll' %></li>
+        <li><%= link_to 'プロフィール', user_path(current_user), :class =>'smoothscroll' %></li>
+        <li><%= link_to '登録情報編集', edit_user_path(current_user), :class =>'smoothscroll' %></li>
+        <li><%= link_to 'ログアウト', logout_path, method: :post, :class =>'smoothscroll' %></li>
+        </button>
+      <% else %>
+       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <li><%= link_to 'ユーザー登録', new_user_path, :class =>'smoothscroll' %></li>
+        <li><%= link_to 'ログインする', login_path, :class =>'smoothscroll' %></li>
+        </button>  
+      <% end %>
         <%= link_to 'KOYAGRAM', root_path,:class => 'navbar-brand' %>
           <p class= 'navbar-brand'> <%= flash[:notice] %> 
             <% if current_user %>
-              現在ログイン中です！<%= @user.username %>さん
+              現在ログイン中です！<%= current_user.username %>さん
             <% end %>
-          </p>
+         </p>
       </div>
       
       <% if current_user %>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'ユーザー一覧', users_path, :class =>'smoothscroll' %></li>
+          <li><%= link_to '通知', '#', :class =>'smoothscroll' %></li>
           <li><%= link_to 'プロフィール', user_path(current_user), :class =>'smoothscroll' %></li>
           <li><%= link_to '登録情報編集', edit_user_path(current_user), :class =>'smoothscroll' %></li>
           <li><%= link_to 'ログアウト', logout_path, method: :post, :class =>'smoothscroll' %></li>

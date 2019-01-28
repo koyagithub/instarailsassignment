@@ -2,10 +2,18 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:readme, :show, :edit, :update, :destroy]
   skip_before_action :require_login, only: [:index, :readme, :new, :create, :activate]
 
-  # GET /users
-  # GET /users.json
-  def index
+  # ROOT
+  def top
       @user = User.all
+    if logged_in?
+      @user = current_user
+    end
+  end
+  
+  # GET /users
+  def index
+    @users = User.all
+    @users = User.paginate(page: params[:page])
     if logged_in?
       @user = current_user
     end
@@ -108,6 +116,21 @@ class UsersController < ApplicationController
       flash[:notice] = '既にアクティベーション済です'
       redirect_to root_path
     end
+  end
+  
+  #GET /users/:id/following & followers
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
   end
 
   private

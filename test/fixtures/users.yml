@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  email: MyString
-  crypted_password: MyString
-  salt: MyString
-
-two:
-  email: MyString
-  crypted_password: MyString
-  salt: MyString
+michael:
+  name: Michael Example
+  email: michael@example.com
+  password: 123456
+  
+archer:
+  name: Archer Example
+  email: archer@example.com
+  password: 123456
