@@ -7,6 +7,8 @@ class UsersController < ApplicationController
       @user = User.all
     if logged_in?
       @user = current_user
+      @micropost  = current_user.microposts.build
+      @feed_items = current_user.feed.paginate(page: params[:page])
     end
   end
   
@@ -118,15 +120,15 @@ class UsersController < ApplicationController
   #GET /users/:id/following & followers
   def following
     @title = "フォロー中のユーザー"
-    @h1 = "フォロー中のユーザー一覧"
     @user  = User.find(params[:id])
+    @h1 = "フォロー中のユーザー一覧"
     @users = @user.following.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
     @title = "フォローされているユーザー"
-    @h1 = "フォローされているユーザー一覧"
+    @h1 = "フォローされているユーザー一覧}"
     @user  = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
