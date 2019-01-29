@@ -1,10 +1,41 @@
-
-<!-- micropost partial -->
   <div class="col-lg-4 ">
-    <%= link_to micropost_comments_path(:micropost_id => micropost.id), target: "_blank" do %>
-    <%= image_tag micropost.picture if micropost.picture? %>
-    <% end %>
-  </li>
+    <!-- Button to call modal windows -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal<%= micropost.id%>">
+        <%= image_tag micropost.picture if micropost.picture? %>
+      </button>
+ 
+    <!-- Content of modal window -->
+      <div class="modal fade" id="myModal<%= micropost.id%>">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">モーダルウィンドウ</h4>
+      </div>
+      <div class="modal-body">
+        <%= image_tag micropost.picture if micropost.picture? %>
+        <% micropost.comments.each do |comment| %>
+        <hr class = 'original-h1'>
+          <div style= "float: right">
+            <%= simple_time(comment.created_at) %>
+          </div>
+          <div style= "float: left"><%= link_to comment.user.username , user_path(micropost.user)  %>
+            <%= comment.body %>
+　　　　  </div>
+　　　　  
+        <hr class = 'original-h1'>
+        <% end %>
+        <%= render '/users/shared/like', collection: @micropost, micropost: micropost %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
+       </div>
+      <hr class = 'original-h1'>
+    </div>
+  </div>
+  </div>
+
+
   
     <!-- if the picture was posted by myself,display created at
        and by followers,display their name and link 
@@ -23,7 +54,6 @@
 　    <%= link_to micropost.user.username , user_path(micropost.user)  %>さんが投稿.
       <hr class="original-h1">
       <strong>タイトルをつけてみましょう！</strong><br />
-      <%= link_to 'コメントページ', micropost_comments_path(:micropost_id => micropost.id) %>
 　  <% end %>
 　  
 　  <%= render '/users/shared/like', collection: @micropost, micropost: micropost %>
