@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'comments/show'
+
   #Setting 
   get 'users/readme' => 'users#readme'
   get 'users/post' => 'users#post'
@@ -35,7 +37,10 @@ Rails.application.routes.draw do
   get 'oauths/callback'
   
   #Microposts 
-  resources :microposts,          only: [:create, :destroy]
+  resources :microposts,          only: [:create, :destroy] do
+  #Comments
+    resources :comments, only: [:index, :create, :edit, :update, :destroy]
+  end
   
   #Relationships
   resources :relationships,       only: [:create, :destroy]
@@ -43,7 +48,7 @@ Rails.application.routes.draw do
   #Likes
   post   '/like/:micropost_id' => 'likes#like',   as: 'like'
   delete '/like/:micropost_id' => 'likes#unlike', as: 'unlike'
-  
+
   #Facebook authentication
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook

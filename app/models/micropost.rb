@@ -2,7 +2,8 @@ class Micropost < ApplicationRecord
   #Relate with user model
   belongs_to :user
   
-  #Relate with like model
+  #Relate with like and comment model
+  has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liking_users, through: :likes, source: :user
   

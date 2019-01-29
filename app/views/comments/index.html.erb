@@ -1,0 +1,34 @@
+
+  <!-- Micropost &comment page -->
+  <div class="container">
+    <div class="centered mt md">
+      <span> <%= image_tag @micropost.picture.url @micropost.picture?%></span>
+      <p><%= link_to "#{@micropost.user.username}" , user_path(@micropost.user) %> さんの投稿です
+  
+      <!-- Comment list -->
+      <div class="comment_index">
+        <h3>コメント一覧(<%= @micropost.comments.count %>)</h3>
+        <hr class = 'original-h1'>
+        <% @micropost.comments.each do |comment| %>
+          <p><%= link_to "#{comment.user.username}" , @user %>: 
+          <%= comment.body %>
+　　　　  <%= simple_time(comment.created_at) %>
+          <span class= "batu"><%= link_to 'コメント削除', micropost_comment_path(@micropost, comment), method: :delete, data: { confirm: 'Are you sure?' } if current_user?(comment.user) %></span></p>
+        <hr class = 'original-h1'>
+        <% end %>
+      </div>
+      
+      <!-- Comment post form -->
+      <div class="comment-form">
+        <%= form_for([@micropost , @comment]) do |f| %>
+        <%= render '/users/shared/error_messages', object: f.object %>
+          <div class="field">
+          <%= f.text_area :body, placeholder: "コメントを記入してください" %>
+          </div>
+         <hr class="original-h1">
+          <%= f.submit "Post", class: "btn btn-primary" %>
+         <% end %>
+         <br />
+      </div> 
+    </div>
+  </div>
