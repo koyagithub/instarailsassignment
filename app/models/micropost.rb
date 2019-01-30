@@ -11,9 +11,18 @@ class Micropost < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
+  validates :content, presence: true, length: { maximum: 20 }, allow_nil: true
   validate  :picture_size
   
-
+  #Search method
+  def self.search(search) #Self.means Micropost.
+    if search
+      where(['content LIKE ?', "%#{search}%"]) #Display partial match of content。
+    else
+      all #Display all
+    end
+  end
+    
     private
 
     # Validates the size of uploaded picture

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   #Setting 
   get 'users/readme' => 'users#readme'
   get 'users/post' => 'users#post'
+  get 'users/noti' => 'users#notification'
   
   #Password edit
   get 'users/pass_edit' => 'users#pass_edit'

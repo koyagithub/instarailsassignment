@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190129052542) do
+ActiveRecord::Schema.define(version: 20190130082743) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -47,9 +47,20 @@ ActiveRecord::Schema.define(version: 20190129052542) do
     t.datetime "updated_at", null: false
     t.string "picture"
     t.integer "likes_count"
+    t.string "notification"
     t.index ["picture"], name: "index_microposts_on_picture"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "n_comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "comment_id"
+    t.integer "micropost_id"
+    t.integer "user_id"
+    t.index ["n_comment"], name: "index_notifications_on_n_comment"
   end
 
   create_table "relationships", force: :cascade do |t|

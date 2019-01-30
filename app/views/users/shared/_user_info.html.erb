@@ -1,4 +1,11 @@
   
-  <h1><%= current_user.username %></h1>
+  <h1 lightblue>
+    <%= @user.username %>
+    <%= gravatar_for @user %>
+  </h1>
   <span><%= link_to "プロフィール画面へ", current_user %></span>
   <span><%= pluralize(current_user.microposts.count, "投稿済") %></span>
+  
+  <hr class = "original-h1">
+  <h3>画像投稿</h3>
+  <hr class = "original-h1">

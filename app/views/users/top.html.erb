@@ -44,6 +44,7 @@
         <% if logged_in? %>
           <hr class= "original-h1">
           <h3>あなたとフォロワーの投稿一覧</h3>
+            <% @re_message if @re_message %>
           <hr class= "original-h1">
           <br />
          <%= render 'users/shared/feed' %>

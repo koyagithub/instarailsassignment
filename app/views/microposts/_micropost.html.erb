@@ -10,7 +10,7 @@
         <div class="modal-content">
         <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">モーダルウィンドウ</h4>
+        <h4 class="modal-title"><%= micropost.user.username %>さんの投稿：<%= micropost.content %></h4>
       </div>
       <div class="modal-body">
         <%= image_tag micropost.picture if micropost.picture? %>
@@ -25,7 +25,7 @@
 　　　　  
         <hr class = 'original-h1'>
         <% end %>
-        <%= render '/users/shared/like', collection: @micropost, micropost: micropost %>
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
@@ -48,12 +48,20 @@
       <%= link_to "delete", micropost, method: :delete,
                                       data: { confirm: "本当に削除してもよろしいですか？" } %>
       <hr class="original-h1">
+      <% if micropost.content %>
+      <strong><%= micropost.content %></strong><br />
+        <% else %>
       <strong>タイトルをつけてみましょう！</strong><br />
+        <% end %>
 　  <% else %>
 　    <br />
 　    <%= link_to micropost.user.username , user_path(micropost.user)  %>さんが投稿.
       <hr class="original-h1">
-      <strong>タイトルをつけてみましょう！</strong><br />
+      <% if micropost.content %>
+        <strong><%= micropost.content %></strong><br />
+      <% else %>
+        <strong>タイトルをつけてみましょう！</strong><br />
+      <% end %>
 　  <% end %>
 　  
 　  <%= render '/users/shared/like', collection: @micropost, micropost: micropost %>

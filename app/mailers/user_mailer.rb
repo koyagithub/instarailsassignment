@@ -23,4 +23,11 @@ class UserMailer < ApplicationMailer
     mail(:to => user.email,
          :subject => "KOYAGRAM パスワード再設定メール")
   end
+  
+  #Send mail to user who posted micropost when comment is posted to the micropost
+  def send_mail(user)
+    @user = user
+    @url  = "https://c1c7ceff64084c3695ace0352d372104.vfs.cloud9.us-east-2.amazonaws.com/users/noti"
+    mail to: user.email, subject:"コメントが投稿されました！！"
+  end
 end

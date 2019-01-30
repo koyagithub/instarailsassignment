@@ -8,7 +8,19 @@ class UsersController < ApplicationController
     if logged_in?
       @user = current_user
       @micropost  = current_user.microposts.build
-      @feed_items = current_user.feed.paginate(page: params[:page])
+      @feed_items = current_user.feed.paginate(page: params[:page]).search(params[:search])
+    end
+  end
+  
+  # GET /users/noti
+  def notification
+      @user = User.all
+      @notifications = Notification.find_by(user_id: current_user)
+    if logged_in?
+      @micropost = @notifications.comment.micropost
+      @commenter = @notifications.comment.user.username
+      @commenter_id = @notifications.comment.user.id
+      @notifications = Notification.paginate(page: params[:page])
     end
   end
   
