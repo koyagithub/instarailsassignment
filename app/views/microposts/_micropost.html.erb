@@ -15,17 +15,15 @@
       <div class="modal-body">
         <%= image_tag micropost.picture if micropost.picture? %>
         <% micropost.comments.each do |comment| %>
-        <hr class = 'original-h1'>
+          <hr class = 'original-h1'>
           <div style= "float: right">
             <%= simple_time(comment.created_at) %>
           </div>
           <div style= "float: left"><%= link_to comment.user.username , user_path(micropost.user)  %>
             <%= comment.body %>
-　　　　  </div>
-　　　　  
-        <hr class = 'original-h1'>
+　　　　　</div>
+          <hr class = 'original-h1'>
         <% end %>
-        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
@@ -41,18 +39,17 @@
        and by followers,display their name and link 
        & Likes and Comment function-->
     <% if current_user == micropost.user %>
-      <span class="timestamp">
-      <br/ >
+      <span class="timestamp"><br/ >
         <%= time_ago_in_words(micropost.created_at) %> 前の投稿. 
       </span>
       <%= link_to "delete", micropost, method: :delete,
                                       data: { confirm: "本当に削除してもよろしいですか？" } %>
       <hr class="original-h1">
       <% if micropost.content %>
-      <strong><%= micropost.content %></strong><br />
-        <% else %>
-      <strong>タイトルをつけてみましょう！</strong><br />
-        <% end %>
+        <strong><%= micropost.content %></strong><br />
+      <% else %>
+        <strong>タイトルをつけてみましょう！</strong><br />
+      <% end %>
 　  <% else %>
 　    <br />
 　    <%= link_to micropost.user.username , user_path(micropost.user)  %>さんが投稿.

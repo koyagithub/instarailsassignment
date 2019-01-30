@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'comments/show'
-
   #Setting 
   get 'users/readme' => 'users#readme'
   get 'users/post' => 'users#post'

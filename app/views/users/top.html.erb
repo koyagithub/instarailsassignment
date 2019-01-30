@@ -38,29 +38,28 @@
     <div class="centered mt mb">
       
 
-      <!-- if logged_in   display you and followers posts
-           if not logged in  display ordinal top page -->
+      <!-- If logged_in   display you and followers posts
+           If not logged in  display ordinal top page -->
            
-        <% if logged_in? %>
-          <hr class= "original-h1">
-          <h3>あなたとフォロワーの投稿一覧</h3>
-            <% @re_message if @re_message %>
-          <hr class= "original-h1">
-          <br />
-         <%= render 'users/shared/feed' %>
-        <% else %>
-          
-            <h5>KOYA GRAMでお気に入りの写真をシェア。世界で愛されるサービスです。｀</h5>
-            <h5>Let's share your favorite photos on KOYA GRAM.</h5>
-            <hr class="original-h1">
-            <p>
-              <%= link_to new_user_path do %>
-              <%= image_tag "/img/top_img.jpeg" %>
-              <h4>ユーザー登録ページ</h4>
-              <% end %>
-            </p>
-            <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
-        <% end %>
+      <% if logged_in? %>
+        <hr class= "original-h1">
+        <h3>あなたとフォロワーの投稿一覧</h3>
+        <% @re_message if @re_message %>
+        <hr class= "original-h1">
+        <br />
+        <%= render 'users/shared/feed' %>
+      <% else %>
+        <h5>KOYA GRAMでお気に入りの写真をシェア。世界で愛されるサービスです。｀</h5>
+        <h5>Let's share your favorite photos on KOYA GRAM.</h5>
+        <hr class="original-h1">
+        <p>
+          <%= link_to new_user_path do %>
+          <%= image_tag "/img/top_img.jpeg" %>
+          <h4>ユーザー登録ページ</h4>
+          <% end %>
+        </p>
+        <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
+      <% end %>
         
       
     </div>

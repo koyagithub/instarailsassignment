@@ -3,7 +3,7 @@
   <div class="container">
     <div class="centered mt md">
       <span> <%= image_tag @micropost.picture.url @micropost.picture?%></span>
-      <p><%= link_to "#{@micropost.user.username}" , user_path(@micropost.user) %> さんの投稿です
+      <p><%= link_to "#{@micropost.user.username}" , user_path(@micropost.user) %> さんの投稿です</p>
   
       <!-- Comment list -->
       <div class="comment_index">
@@ -25,7 +25,7 @@
           <div class="field">
           <%= f.text_area :body, placeholder: "コメントを記入してください" %>
           </div>
-         <hr class="original-h1">
+          <hr class="original-h1">
           <%= f.submit "Post", class: "btn btn-primary" %>
          <% end %>
          <br />
