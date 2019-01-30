@@ -1,3 +1,4 @@
+<% provide(:title, 'ログインフォーム') %>
 <div class="container">
     <div class="row centered mt mb">
       <div class="col-lg-8 col-lg-offset-2">
@@ -5,7 +6,7 @@
           <p>ログインしたらぜひ写真を投稿してシェアしましょう！</p>
           <%= render 'form', user: @user %>
           <%= link_to 'Back', user_sessions_path %>
-          <hr >
+          <hr class= "original-h1">
         <h4>パスワードを忘れてしまった場合</h4>
           <p>パスワード再設定用のリンクをメールで送信します。ご登録のメールアドレスを入力してください。</p>
           <%= render 'forgot_password_form' %>

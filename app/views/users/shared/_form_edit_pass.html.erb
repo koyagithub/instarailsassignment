@@ -1,3 +1,4 @@
+  <hr class = "original-h1">
     <p>新しく設定するパスワードを入力してください。</p>
       <%= form_for @user, url: users_pass_edit_path do |f| %>
         <% if @user.errors.any? %>
@@ -9,20 +10,24 @@
             </ul>
           </div>
         <% end %>
+      <hr class = "original-h1">
       <div class="field">
         <%= f.label :email %><br />
         <%= @user.email %>
       </div>
+      <hr class = "original-h1">
       <div class="field">
         <%= f.label :password %><br />
         <%= f.password_field :password %>
       </div>
+      <hr class = "original-h1">
       <div class="field">
         <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation %>
       </div>
       <!-- FOR CSRF PROTECTION AUTHENTICITY TOKEN --> 
       <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <hr class = "original-h1">
       <div class="actions">
         <%= f.submit %>
       </div>

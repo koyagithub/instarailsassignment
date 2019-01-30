@@ -424,7 +424,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .back_to_new {
-  margin-top: 10px;
+  padding-top: 20px;
 }
 
 
@@ -592,8 +592,15 @@ font-weight: bold;
  }
  
  .search-bar {
-   margin-left: 5px;
+  margin-left: 5px;
   margin-top: 13px
  }
  
+ .actions {
+   margin-top: 15px;
+   padding-bottom: 10px;
+ }
  
+ .red_span {
+   color: red;
+ }

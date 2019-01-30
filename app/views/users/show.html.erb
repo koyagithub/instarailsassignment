@@ -1,3 +1,4 @@
+<% provide(:title, 'ユーザーページ') %>
   <div class="container">
     <div class="centered mt mb">
       <div class="stats-div">
@@ -12,13 +13,16 @@
           <%= render 'users/shared/stats' %>
         </div>
         <hr class = "original-h1"/>
-        <!-- profile text-->
+        <!-- profile text and web-->
         <div class="self-introduction"><h5>自己紹介文</h5>
           <% if @user.profile %>
-            <%= @user.profile %>
+            <h5><%= @user.profile %></h5>
           <% else %>
             <h5>メニューバーの登録情報編集ページから<br />自己紹介を設定できます！
             ぜひ自己紹介文を設定してみましょう</h5>
+          <% end %>
+          <% if @user.web %>
+            <p><br />URL: <%= link_to @user.web, @user.web %></p>
           <% end %>
         </div>
       　<!-- follow / unfollow -->

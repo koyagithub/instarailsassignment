@@ -49,16 +49,17 @@
           <br />
          <%= render 'users/shared/feed' %>
         <% else %>
-          <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
-          <h2>KOYA GRAM</h2>
-            <p>KOYA GRAMでお気に入りの写真をシェア。世界で愛されるサービスです。｀</p>
-            <p>Let's share your favorite photos on KOYA GRAM.</p>
+          
+            <h5>KOYA GRAMでお気に入りの写真をシェア。世界で愛されるサービスです。｀</h5>
+            <h5>Let's share your favorite photos on KOYA GRAM.</h5>
+            <hr class="original-h1">
             <p>
-              <%= link_to new_user_path, target: "_blank" do %>
-              <%= image_tag "/img/top_img2.png",:size =>'90x90' %>
-              <p>ユーザー登録ページ</p>
+              <%= link_to new_user_path do %>
+              <%= image_tag "/img/top_img.jpeg" %>
+              <h4>ユーザー登録ページ</h4>
               <% end %>
             </p>
+            <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
         <% end %>
         
       

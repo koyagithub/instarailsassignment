@@ -1,6 +1,7 @@
   <div class="container">
     <div class="row centered mt mb">
       <div class="col-lg-8 col-lg-offset-2">
+        <hr class = "original-h1">
           <h3>新しく設定するパスワードを入力してください。</h3>
             <%= form_for @user, :url => password_reset_path(@token), :html => {:method => :put} do |f| %>
               <% if @user.errors.any? %>
@@ -12,18 +13,22 @@
                   </ul>
                 </div>
               <% end %>
+              <hr class = "original-h1">
               <div class="field">
                 <%= f.label :email %><br />
                 <%= @user.email %>
               </div>
+              <hr class = "original-h1">
               <div class="field">
                 <%= f.label :password %><br />
                 <%= f.password_field :password %>
               </div>
+              <hr class = "original-h1">
               <div class="field">
                 <%= f.label :password_confirmation %><br />
                 <%= f.password_field :password_confirmation %>
               </div>
+              <hr class = "original-h1">
               <div class="actions">
                 <%= f.submit %>
               </div>

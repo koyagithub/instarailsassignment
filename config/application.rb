@@ -7,8 +7,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module InstaApp
-  class Application < Rails::Application
+module In  class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.i18n.default_locale = :ja
@@ -20,7 +19,7 @@ module InstaApp
   # Emb authenticity token to remote_forms
     config.action_view.embed_authenticity_token_in_remote_forms = true
   
-  # Inputting time_zone asia/tokyo
+  # nputting time_zone asia/tokyo
   config.time_zone = 'Asia/Tokyo'
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190130082743) do
+ActiveRecord::Schema.define(version: 20190130111508) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -45,10 +45,9 @@ ActiveRecord::Schema.define(version: 20190130082743) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "picture"
     t.integer "likes_count"
     t.string "notification"
-    t.index ["picture"], name: "index_microposts_on_picture"
+    t.string "picture"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
@@ -58,7 +57,6 @@ ActiveRecord::Schema.define(version: 20190130082743) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "comment_id"
-    t.integer "micropost_id"
     t.integer "user_id"
     t.index ["n_comment"], name: "index_notifications_on_n_comment"
   end
@@ -89,10 +87,16 @@ ActiveRecord::Schema.define(version: 20190130082743) do
     t.datetime "reset_password_email_sent_at"
     t.integer "access_count_to_reset_password_page", default: 0
     t.string "username"
+    t.string "name"
+    t.string "phone_num"
+    t.string "gender"
+    t.string "web"
     t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["name", "phone_num", "gender", "web"], name: "index_users_on_name_and_phone_num_and_gender_and_web"
     t.index ["profile"], name: "index_users_on_profile"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
+    t.index ["username"], name: "index_users_on_username"
   end
 
 end
