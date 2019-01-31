@@ -5,9 +5,11 @@
       <% if current_user %>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <li><%= link_to 'ユーザー一覧', users_path , :class =>'smoothscroll' %></li>
-        <li><%= link_to '通知', users_noti_path, :class =>'smoothscroll' %></li>
+        <% #if @notifications %>
+          <li><%= link_to '通知', users_noti_path, :class =>'smoothscroll' %></li>
+        <% #end %>
         <li><%= link_to 'プロフィール', user_path(current_user), :class =>'smoothscroll' %></li>
-        <li><%= link_to '登録情報編集', edit_user_path(current_user), :class =>'smoothscroll' %></li>
+        <li><%= link_to '情報編集', edit_user_path(current_user), :class =>'smoothscroll' %></li>
         <li><%= link_to 'ログアウト', logout_path, method: :post, :class =>'smoothscroll' %></li>
         </button>
       <% else %>
@@ -28,9 +30,11 @@
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to 'ユーザー一覧', users_path, :class =>'smoothscroll' %></li>
-          <li><%= link_to '通知', users_noti_path, :class =>'smoothscroll' %></li>
+          <% if @notifications %>
+            <li><%= link_to '通知', users_noti_path, :class =>'smoothscroll' %></li>
+          <% end %>
           <li><%= link_to 'プロフィール', user_path(current_user), :class =>'smoothscroll' %></li>
-          <li><%= link_to '登録情報編集', edit_user_path(current_user), :class =>'smoothscroll' %></li>
+          <li><%= link_to '情報編集', edit_user_path(current_user), :class =>'smoothscroll' %></li>
           <li><%= link_to 'ログアウト', logout_path, method: :post, :class =>'smoothscroll' %></li>
           <li class="search-bar">      
             <!-- Search form -->

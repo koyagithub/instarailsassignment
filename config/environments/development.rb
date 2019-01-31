@@ -36,8 +36,8 @@ Rails.application.configure do
     :address => "smtp.gmail.com",
     :port => 587,
     :domain => 'smtp.gmail.com',
-    :user_name => 'instamailsender@gmail.com', #gmailアドレス
-    :password => '19930303y' #gmailパスワード
+    :user_name => 'instamailsender@gmail.com', #gmail address
+    :password => '19930303y' #gmail pass
   }
 
   # Print deprecation notices to the Rails logger.

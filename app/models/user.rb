@@ -35,6 +35,8 @@ class User < ApplicationRecord
   
   #Related with Micropost and Like model
   has_many :microposts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :notifications, through: :comments, source: :microost
   has_many :likes, dependent: :destroy
   has_many :like_stories, through: :likes, source: :micropost
   

@@ -15,20 +15,16 @@
       <div class="modal-body">
         <%= image_tag micropost.picture if micropost.picture? %>
         <% micropost.comments.each do |comment| %>
-          <hr class = 'original-h1'>
-          <div style= "float: right">
-            <%= simple_time(comment.created_at) %>
-          </div>
-          <div style= "float: left"><%= link_to comment.user.username , user_path(micropost.user)  %>
-            <%= comment.body %>
-　　　　　</div>
-          <hr class = 'original-h1'>
+        <hr style= 'original-h1'>
+        <%= link_to comment.user.username , user_path(micropost.user)  %>
+        <%= comment.body %>
+        <%= simple_time(comment.created_at) %>
+        <hr>
         <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
        </div>
-      <hr class = 'original-h1'>
     </div>
   </div>
   </div>

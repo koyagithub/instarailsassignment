@@ -110,8 +110,9 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
+    @current_user = nil
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'ユーザーは削除されました。' }
+      format.html { redirect_to root_path, notice: 'ユーザーは削除されました。' }
       format.json { head :no_content }
     end
   end

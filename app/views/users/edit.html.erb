@@ -5,6 +5,8 @@
           <h2>登録情報編集ページ</h2>
           <%= render 'users/shared/form_edit', user: @user %>
           <h5><%= link_to 'パスワード再設定はこちらから', '/users/pass_edit' %></h5>
+           <p><%= link_to "アカウントを削除する", @user, method: :delete,
+                                      data: { confirm: "本当に削除してもよろしいですか？一度アカウント削除すると二度と元に戻せません。あなたの大切な思い出、投稿、すべて消えてしまいます。本当によろしいですか？" } %></p>
           <%= link_to 'プロフィールページへ', @user %> 
       </div>
     </div>
