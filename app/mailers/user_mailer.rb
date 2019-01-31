@@ -7,13 +7,13 @@ class UserMailer < ApplicationMailer
   #
   def activation_needed_email(user)
     @user = user
-    @url  = "https://c1c7ceff64084c3695ace0352d372104.vfs.cloud9.us-east-2.amazonaws.com/users/#{user.activation_token}/activate"
+    @url  = "https://koyagram.herokuapp.com/users/#{user.activation_token}/activate"
     mail(to: user.email, subject: "KOYAGRAM アカウント有効化メール")
   end
 
   def activation_success_email(user)
     @user = user
-    @url  = "https://c1c7ceff64084c3695ace0352d372104.vfs.cloud9.us-east-2.amazonaws.com/users/#{user.activation_token}/activate"
+    @url  = "https://koyagram.herokuapp.com/users/#{user.activation_token}/activate"
     mail(to: user.email, subject: "KOYAGRAM アカウントが有効化されました")
   end
   
@@ -27,7 +27,7 @@ class UserMailer < ApplicationMailer
   #Send mail to user who posted micropost when comment is posted to the micropost
   def send_mail(user)
     @user = user
-    @url  = "https://c1c7ceff64084c3695ace0352d372104.vfs.cloud9.us-east-2.amazonaws.com/users/noti"
+    @url  = "https://koyagram.herokuapp.com/users/noti"
     mail to: user.email, subject:"コメントが投稿されました！！"
   end
 end
