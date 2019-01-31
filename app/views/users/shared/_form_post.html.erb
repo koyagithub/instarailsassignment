@@ -1,0 +1,18 @@
+  <%= form_for(@micropost) do |f| %>
+    <%= render 'users/shared/error_messages', object: f.object %>
+    <div class="field-username">
+      <p> タイトルは20文字以内で記入してください。</p>
+      <%= f.label :画像タイトル ,:class => 'email_label'%><br />
+      <%= f.text_field :content, id: :user_email %>
+    </div>
+    
+    <hr class="original-h1">
+  
+    <span class="btn btn-default btn-file">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/png', onChange:'inform()' %>
+    </span>
+    
+    <%= f.submit "投稿", class: "btn btn-primary" %>
+  <% end %>
+    
+  

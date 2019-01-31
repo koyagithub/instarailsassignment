@@ -1,0 +1,56 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <!-- edit_form -->
+  <hr class="original-h1">
+    ※は入力必須です<br />
+
+  <hr class="original-h1">
+  <div class="field-username">
+    <%= form.label :ユーザーネーム ,:class => 'email_label'%><span class="red_span">※</span><br />
+    <%= form.text_field :username, id: :user_username %>
+  </div>
+  <hr class="original-h1">
+  <div class="field-username">
+    <%= form.label :ウェブURL ,:class => 'email_label'%><br />
+    <%= form.text_field :web, id: :user_web %>
+  </div>
+  <hr class="original-h1">
+  <div class="field-username">
+    <%= form.label :本名 ,:class => 'email_label'%><span class="red_span"> ※ 非公開</span><br />
+    <%= form.text_field :name, id: :user_name %>
+  </div>
+  <hr class="original-h1">
+  <div class="field-username">
+    <%= form.label :電話番号 ,:class => 'email_label'%><span class="red_span"> 非公開</span><br />
+    <%= form.text_field :phone_num, id: :user_phone_num %>
+  </div>
+  <hr class="original-h1">
+  <div class="field-email">
+    <%= form.label :メールアドレス ,:class => 'email_label'%><span class="red_span"> 非公開</span><br />
+    <%= form.text_field :email, id: :user_email %>
+  </div>
+  <hr class="original-h1">
+  <div class="field-username">
+    <%= form.label :gender, '性別', class:'control-label' %><span class="red_span"> 非公開</span><br />
+    <%= form.select :gender, [["男性","男性"], ["女性","女性"], ["第三の性","第三の性"]], {}, class:'control-label' %>
+  </div>
+  <hr class="original-h1">
+  <div class="field-email"><!-- substitute for field-profile -->
+    <%= form.label :自己紹介文。140文字以内でお好きな自己紹介文を入力してください。%>
+    <%= form.text_area :profile,  class: 'form-control', placeholder: "140文字以内で入力" %> 
+  </div>
+  <br />
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  
+<% end %>

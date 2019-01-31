@@ -1,0 +1,34 @@
+  <hr class = "original-h1">
+    <p>新しく設定するパスワードを入力してください。</p>
+      <%= form_for @user, url: users_pass_edit_path do |f| %>
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <ul>
+              <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      <hr class = "original-h1">
+      <div class="field">
+        <%= f.label :メールアドレス %><br />
+        <%= @user.email %>
+      </div>
+      <hr class = "original-h1">
+      <div class="field">
+        <%= f.label :パスワード %><br />
+        <%= f.password_field :password %>
+      </div>
+      <hr class = "original-h1">
+      <div class="field">
+        <%= f.label :パスワード　確認用 %><br />
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <!-- FOR CSRF PROTECTION AUTHENTICITY TOKEN --> 
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <hr class = "original-h1">
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>

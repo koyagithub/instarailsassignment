@@ -1,0 +1,20 @@
+
+<!-- Like and comment button on top page -->
+<div class="like-link" id="like-link-<%= micropost.id %>">
+  <% if current_user.likes.find_by(micropost_id: micropost.id) %>
+    <%= link_to unlike_path(micropost.id), method: :delete, remote: true do %>
+        <div class = "iine__button">❤️<%= micropost.likes.count %></div>
+    <% end %>
+    <%= link_to micropost_comments_path(micropost.id) do %>
+        <div class = "iine__button"><%= micropost.comments.count %>コメント</div>
+    <% end %>
+  <% else %>
+    <%= link_to like_path(micropost.id), method: :post, remote: true do %>
+        <div class = "iine__button">♡️<%= micropost.likes.count %></div>
+    <% end %>
+    <%= link_to micropost_comments_path(micropost.id) do %>
+        <div class = "iine__button"><%= micropost.comments.count %>コメント</div>
+    <% end %>
+  <% end %>
+</div>
+

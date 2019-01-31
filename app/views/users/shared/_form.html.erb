@@ -1,0 +1,43 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <hr class="original-h1">
+  <div class="field-username">
+    <%= form.label :氏名 ,:class => 'email_label'%><span class="red_span"> （非公開）</span><br />
+    <%= form.text_field :name, id: :user_email %>
+  </div>
+  <hr class="original-h1">
+  <div class="field-username">
+    <p> 16文字以内で記入してください。</p>
+    <%= form.label :ユーザーネーム ,:class => 'email_label'%><br />
+    <%= form.text_field :username, id: :user_email %>
+  </div>
+  <hr class="original-h1">
+  <div class="field-email">
+    <%= form.label :メールアドレス ,:class => 'email_label'%><br />
+    <%= form.text_field :email, id: :user_email %>
+  </div>
+  <hr class="original-h1">
+  <div class="field-pass">
+    <p> 6文字以上で記入してください。</p>
+     <%= form.label :パスワード %><br />
+     <%= form.password_field :password %>
+  </div>
+  <hr class="original-h1">
+  <div class="field-passconf">
+     <%= form.label :パスワード（確認用） %><br />
+     <%= form.password_field :password_confirmation %>
+  </div>
+  <hr class="original-h1">
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

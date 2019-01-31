@@ -1,0 +1,78 @@
+body {
+  background-color: #fff;
+  color: #333;
+  margin: 33px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; }
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; }
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px; }
+
+a {
+  color: #000; }
+  a:visited {
+    color: #666; }
+  a:hover {
+    color: #fff;
+    background-color: #000; }
+
+th {
+  padding-bottom: 5px; }
+
+td {
+  padding: 0 5px 7px; }
+
+div {
+  margin: 0 auto 0 auto; }
+  div.field, div.actions {
+    margin-bottom: 2px; }
+
+#notice {
+  color: green; }
+
+.field_with_errors {
+  display: inline; }
+
+.email_label:after {
+  content: "\a"; }
+
+#error_explanation {
+  width: 350px;
+  border: 2px solid red;
+  margin: 10px  auto;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; }
+  #error_explanation h2 {
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 5px 5px 5px;
+    font-size: 12px;
+    margin: -7px -7px 8px 0px;
+    background-color: #c00;
+    color: #fff; }
+  #error_explanation ul li {
+    font-size: 12px;
+    list-style: square; }
+
+label {
+  display: inline; }
+
+#custormizearea
+input[type="text"] {
+  width: 250px;
+  height: 35px; }
+
+input[type="password"] {
+  width: 250px;
+  height: 35px; }
+
+/*# sourceMappingURL=scaffolds.css.map */

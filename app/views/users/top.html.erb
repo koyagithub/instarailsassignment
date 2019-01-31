@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Instant - Bootstrap Personal Template</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Template Name: Instant
+    Template URL: https://templatemag.com/instant-bootstrap-personal-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+
+  <!-- top -->
+  <div class="container">
+    <div class="centered mt mb">
+      
+
+      <!-- If logged_in   display you and followers posts
+           If not logged in  display ordinal top page -->
+           
+      <% if logged_in? %>
+        <hr class= "original-h1">
+        <h3>あなたとフォロワーの投稿一覧</h3>
+        <% @re_message if @re_message %>
+        <hr class= "original-h1">
+        <br />
+        <%= render 'users/shared/feed' %>
+      <% else %>
+        <h5>KOYA GRAMでお気に入りの写真をシェア。世界で愛されるサービスです。｀</h5>
+        <h5>Let's share your favorite photos on KOYA GRAM.</h5>
+        <hr class="original-h1">
+        <p>
+          <%= link_to new_user_path do %>
+          <%= image_tag "/img/top_img.jpeg" %>
+          <h4>ユーザー登録ページ</h4>
+          <% end %>
+        </p>
+        <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
+      <% end %>
+        
+      
+    </div>
+  </div>
+
+</body>
+</html>

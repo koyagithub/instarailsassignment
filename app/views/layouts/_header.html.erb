@@ -1,0 +1,61 @@
+  <!-- Static navbar -->
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+      <% if current_user %>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <li><%= link_to 'ユーザー一覧', users_path , :class =>'smoothscroll' %></li>
+        <% #if @notifications %>
+          <li><%= link_to '通知', users_noti_path, :class =>'smoothscroll' %></li>
+        <% #end %>
+        <li><%= link_to 'プロフィール', user_path(current_user), :class =>'smoothscroll' %></li>
+        <li><%= link_to '情報編集', edit_user_path(current_user), :class =>'smoothscroll' %></li>
+        <li><%= link_to 'ログアウト', logout_path, method: :post, :class =>'smoothscroll' %></li>
+        </button>
+      <% else %>
+       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <li><%= link_to 'ユーザー登録', new_user_path, :class =>'smoothscroll' %></li>
+        <li><%= link_to 'ログインする', login_path, :class =>'smoothscroll' %></li>
+        </button>  
+      <% end %>
+        <%= link_to 'KOYAGRAM', root_path,:class => 'navbar-brand' %>
+          <p class= 'navbar-brand'> <%= flash[:notice] %> 
+            <% if current_user %>
+              ログイン中！<%= current_user.username %>さん
+            <% end %>
+         </p>
+      </div>
+      
+      <% if current_user %>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'ユーザー一覧', users_path, :class =>'smoothscroll' %></li>
+          <% if @notifications %>
+            <li><%= link_to '通知', users_noti_path, :class =>'smoothscroll' %></li>
+          <% end %>
+          <li><%= link_to 'プロフィール', user_path(current_user), :class =>'smoothscroll' %></li>
+          <li><%= link_to '情報編集', edit_user_path(current_user), :class =>'smoothscroll' %></li>
+          <li><%= link_to 'ログアウト', logout_path, method: :post, :class =>'smoothscroll' %></li>
+          <li class="search-bar">      
+            <!-- Search form -->
+               <%= form_tag root_path, :method => 'get' do %>
+               <p>
+               <%= text_field_tag :search, params[:search] %>
+               <%= submit_tag "画像検索", :name => nil %>
+               </p>
+               <% end %> 
+          </li>
+        </ul>
+      </div>
+  
+      <% else %>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'ユーザー登録', new_user_path, :class =>'smoothscroll' %></li>
+          <li><%= link_to 'ログインする', login_path, :class =>'smoothscroll' %></li>
+        </ul>
+      </div>
+      <% end %>
+      <!--/.nav-collapse -->
+    </div>
+  </div>

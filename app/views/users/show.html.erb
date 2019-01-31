@@ -1,0 +1,44 @@
+<% provide(:title, 'ユーザーページ') %>
+  <div class="container">
+    <div class="centered mt mb">
+      <div class="stats-div">
+        <!-- profile image -->
+        <h1 lightblue>
+          <%= @user.username %>
+          <%= gravatar_for @user %>
+        </h1>
+        <!-- stats -->
+        <hr class = "original-h1"/>
+        <div class = "stats-class">
+          <%= render 'users/shared/stats' %>
+        </div>
+        <hr class = "original-h1"/>
+        <!-- profile text and web-->
+        <div class="self-introduction"><h5>自己紹介文</h5>
+          <% if @user.profile %>
+            <h5><%= @user.profile %></h5>
+          <% else %>
+            <h5>メニューバーの登録情報編集ページから<br />自己紹介を設定できます！
+            ぜひ自己紹介文を設定してみましょう</h5>
+          <% end %>
+          <% if @user.web %>
+            <p><br />URL: <%= link_to @user.web, @user.web %></p>
+          <% end %>
+        </div>
+      　<!-- follow / unfollow -->
+        <%= render 'users/shared/follow_form' if current_user %>
+        <hr class = "original-h1"/>
+        <!-- microposts -->
+        <% if @user.microposts.any? %>
+          <h3>最新の投稿 (<%= @user.microposts.count %>)</h3>
+            <ol class="microposts">
+              <%= render @microposts %>
+            </ol>
+        <% end %>
+        </div>
+      <!-- pagination -->
+      <p><%= will_paginate @microposts %></p>
+      
+    </div>
+  </div>
+  <br /> <br /> <br /> <br />

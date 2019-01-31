@@ -1,0 +1,6 @@
+//= require jquery
+//= require jquery_ujs
+
+$("#stats-class").html("<%= escape_javascript(render('/users/shared/stats')) %>");
+$("#follow_form").html("<%= escape_javascript(render('/users/shared/follow')) %>");
+$("#followers").html('<%= @user.followers.count %>');

@@ -1,0 +1,28 @@
+
+      <!-- user list-->
+      <% @users.each do |user| %>
+      <div class= "md2">
+        <hr class = "original-h1"/>
+          <div class="self-introduction"><h5>登録ユーザー <%= link_to user.username, user_path(user) %></h5>
+            <%= gravatar_for user, size: 50 %>
+            <!-- displaying timezone/japan and removing +0900 with simpletime method -->
+            <p></p><p>登録日　<%= simple_time(user.created_at) %></p>
+            <p>
+              <%= user.following.count %>フォロー中 /
+              <%= user.followers.count %>フォロワー
+            </p>
+            <% if user.profile %>
+              <h5><%= user.profile %></h5>
+            <% else %>
+              <h5>まだ自己紹介が未設定です</h5>
+            <% end %>
+        </div>
+        </div>
+      <% end %>
+
+      <!-- paginate -->
+      <div class="self-introduction"><p><%= will_paginate @users %></p></div>
+      </div>
+      
+    </div>
+  </div>
