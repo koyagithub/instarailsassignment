@@ -15,10 +15,10 @@ Rails.application.config.sorcery.configure do |config|
       
   config.facebook.key = "2141401962617839"
   config.facebook.secret = "1d2ba15249a05ac72903034197653260"
-  config.facebook.callback_url = "https://ancient-dawn-60120.herokuapp.com/oauth/callback?provider=facebook"
+  config.facebook.callback_url = "https://koyagram.herokuapp.com/oauth/callback?provider=facebook"
   config.facebook.user_info_path = "me?fields=email,name,username" #etc
-  config.facebook.user_info_mapping = {:email => "email", :name => "name", :username => "username", :hometown => "hometown/name"} #etc
-  config.facebook.scope = "email,user_hometown,user_likes" #etc
+  config.facebook.user_info_mapping = {:email => "email", :name => "name", :username => "username"} #etc
+  config.facebook.scope = "email" #etc
   config.facebook.display = "popup"
   
   
